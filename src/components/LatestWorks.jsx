@@ -3,10 +3,19 @@ import ProjectCard from "./ProjectCard";
 import { projects } from "../data/projects";
 
 export default function LatestWorks() {
-  // Data se unique categories nikalne ka asan tarika
   const categories = ["All Categories", ...new Set(projects.map((p) => p.category))];
-  
   const [activeCategory, setActiveCategory] = useState("All Categories");
+
+  // --- REUSABLE STYLES ---
+  const styles = {
+    section: "bg-[#1a1d23] text-gray-100 py-24 px-6 sm:px-12 lg:px-24 scroll-mt-20",
+    container: "max-w-7xl mx-auto",
+    // Mobile par scrollable, PC par grid/flex
+    filterContainer: "flex md:justify-center items-center gap-4 mb-20 overflow-x-auto md:overflow-visible pb-4 md:pb-0 no-scrollbar whitespace-nowrap",
+    btnBase: "px-6 py-2.5 text-xs md:text-sm font-bold transition-all duration-300 rounded-full border-2 cursor-pointer uppercase tracking-wider shrink-0",
+    btnActive: "bg-blue-600 border-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] scale-105",
+    btnInactive: "bg-transparent border-gray-700 text-gray-500 hover:border-blue-500/50 hover:text-blue-400"
+  };
 
   const filteredProjects =
     activeCategory === "All Categories"
@@ -14,33 +23,29 @@ export default function LatestWorks() {
       : projects.filter((proj) => proj.category === activeCategory);
 
   return (
-    <section id="projects" className="bg-[#1a1d23] text-gray-100 py-24 px-6 sm:px-12 lg:px-24 scroll-mt-2">
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className={styles.section}>
+      <div className={styles.container}>
         
         {/* HEADING */}
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight text-white">
             Latest <span className="text-blue-500">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-blue-500 mx-auto mb-6 rounded-full"></div>
           <p className="text-gray-400 max-w-2xl text-lg leading-relaxed mx-auto">
-            Explore my latest works, ranging from full-stack applications to sleek UI/UX designs. 
-            Each project tells a story of problem-solving and clean code.
+            Explore my latest works, ranging from full-stack applications to sleek UI/UX designs.
           </p>
         </div>
 
-        {/* Filter Buttons (Ab ye automatic data se categories uthayenge) */}
-        <div className="flex flex-wrap gap-4 mb-20 justify-center">
+        {/* Filter Buttons Group */}
+        {/* 'no-scrollbar' class humne CSS mein pehle hi modal ke liye banayi thi, wahi yahan kaam ayegi */}
+        <div className={styles.filterContainer}>
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2.5 text-sm font-bold transition-all duration-300 rounded-full border-2 cursor-pointer uppercase tracking-wider
-                ${
-                  activeCategory === category
-                    ? "bg-blue-600 border-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] scale-105"
-                    : "bg-transparent border-gray-700 text-gray-500 hover:border-blue-500/50 hover:text-blue-400"
-                }`}
+              className={`${styles.btnBase} ${
+                activeCategory === category ? styles.btnActive : styles.btnInactive
+              }`}
             >
               {category}
             </button>
@@ -55,7 +60,7 @@ export default function LatestWorks() {
             ))
           ) : (
             <div className="col-span-full text-center py-20">
-               <p className="text-gray-500 text-xl italic">Koyi project nahi mila is category mein... 😅</p>
+               <p className="text-gray-500 text-xl italic">No projects found in this category... 😅</p>
             </div>
           )}
         </div>

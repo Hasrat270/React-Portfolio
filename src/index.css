@@ -2,6 +2,7 @@
 html {
   scroll-behavior: smooth;
   cursor: none !important; /* Default cursor khatam */
+  scrollbar-gutter: stable; /* Page shift nahi hoga jab modal khulega */
 }
 /* index.css ya jahan aapki main CSS hai */
 body {
@@ -12,7 +13,9 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
-a, button, [role="button"] {
+a,
+button,
+[role="button"] {
   cursor: none !important;
 }
 
@@ -53,12 +56,12 @@ a, button, [role="button"] {
   --animate-marquee: marquee 45s linear infinite;
 
   @keyframes marquee {
-    from { 
-      transform: translate3d(0, 0, 0); 
+    from {
+      transform: translate3d(0, 0, 0);
     }
-    to { 
+    to {
       /* -50% tabhi kaam karega agar icons double hon */
-      transform: translate3d(-50%, 0, 0); 
+      transform: translate3d(-50%, 0, 0);
     }
   }
 }
