@@ -1,7 +1,9 @@
 @import "tailwindcss";
 html {
   scroll-behavior: smooth;
+  cursor: none !important; /* Default cursor khatam */
 }
+/* index.css ya jahan aapki main CSS hai */
 body {
   background-color: #232730;
   background-image: url("./assets/bg-img.jpg");
@@ -9,4 +11,54 @@ body {
   /* background-attachment: fixed; */
   background-position: center;
   background-repeat: no-repeat;
+}
+a, button, [role="button"] {
+  cursor: none !important;
+}
+
+/* --- CUSTOM SCROLLBAR --- */
+
+/* 1. Scrollbar ki width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* 2. Track (Pichla hissa) */
+::-webkit-scrollbar-track {
+  background: #1a1d23; /* Same as your section background */
+}
+
+/* 3. Handle (Jo chalta hai) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3b82f6, #1d4ed8); /* Blue Gradient */
+  border-radius: 10px;
+  border: 2px solid #1a1d23; /* Border de kar thora gap banaya hai */
+}
+
+/* 4. Handle on Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #60a5fa; /* Thora light blue hover par */
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+/* Firefox ke liye (Optional) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 #1a1d23;
+}
+
+/* index.css */
+@theme {
+  /* Time 15s se barha kar 40s ya 50s karein */
+  --animate-marquee: marquee 45s linear infinite;
+
+  @keyframes marquee {
+    from { 
+      transform: translate3d(0, 0, 0); 
+    }
+    to { 
+      /* -50% tabhi kaam karega agar icons double hon */
+      transform: translate3d(-50%, 0, 0); 
+    }
+  }
 }

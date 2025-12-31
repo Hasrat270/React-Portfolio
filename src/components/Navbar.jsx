@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router";
-import logoImg from "../assets/logo.png";
+import logoImg from "../assets/images/logo.png";
 
-// 1. NAVITEM KO BAHAR NIKAL DIYA (Ab ye render ke waqt recreate nahi hoga)
 const NavItem = ({ to, label, location, linkClasses }) => {
   const isHomePage = location.pathname === "/";
 
   return (
     <li>
       {isHomePage ? (
+        // Home page par hain toh smooth scroll link (#)
         <a href={to} className={linkClasses}>
           {label}
         </a>
       ) : (
+        // Kisi aur page (Details) par hain toh home page par wapis bhej kar hash par le jao
         <Link to={`/${to}`} className={linkClasses}>
           {label}
         </Link>
@@ -52,28 +53,34 @@ export default function Navbar() {
         <ul className="flex gap-8 text-gray-300 font-medium">
           <li>
             {location.pathname === "/" ? (
-              <a href="#" className={linkClasses}>
-                Home
-              </a>
+              <a href="#" className={linkClasses}>Home</a>
             ) : (
-              <Link className={linkClasses} to="/">
-                Home
-              </Link>
+              <Link className={linkClasses} to="/">Home</Link>
             )}
           </li>
-          {/* Ab props ke zariya location aur classes pass kar rahe hain */}
+
           <NavItem
             to="#about"
             label="About"
             location={location}
             linkClasses={linkClasses}
           />
+
           <NavItem
-            to="#portfolio"
-            label="Portfolio"
+            to="#skills"
+            label="Skills"
             location={location}
             linkClasses={linkClasses}
           />
+
+          {/* Syncing: Label 'Latest Projects' hai toh 'to' prop '#projects' hona chahiye */}
+          <NavItem
+            to="#projects" 
+            label="Latest Projects"
+            location={location}
+            linkClasses={linkClasses}
+          />
+
           <NavItem
             to="#contact"
             label="Contact"

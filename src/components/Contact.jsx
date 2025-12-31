@@ -86,10 +86,15 @@ export default function Contact() {
 
         {/* Right Side: Contact Form */}
         <div className="bg-gray-800/30 p-8 md:p-10 rounded-3xl border border-gray-700/50 backdrop-blur-sm shadow-2xl">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            {" "}
+            {/* Form ke main fields ke darmiyan gap barha diya */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Name Input Group */}
+              <div className="flex flex-col gap-3">
+                {" "}
+                {/* label aur input ke beech gap-3 add kiya */}
+                <label className="text-sm font-semibold text-gray-300 ml-1 tracking-wide">
                   Your Name
                 </label>
                 <input
@@ -99,11 +104,13 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="John Doe"
-                  className="w-full bg-gray-900/50 border border-gray-700 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full bg-gray-900/50 border border-gray-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-500/50 focus:bg-gray-900 transition-all shadow-inner"
                 />
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">
+
+              {/* Email Input Group */}
+              <div className="flex flex-col gap-3">
+                <label className="text-sm font-semibold text-gray-300 ml-1 tracking-wide">
                   Email Address
                 </label>
                 <input
@@ -113,12 +120,13 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="john@example.com"
-                  className="w-full bg-gray-900/50 border border-gray-700 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full bg-gray-900/50 border border-gray-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-500/50 focus:bg-gray-900 transition-all shadow-inner"
                 />
               </div>
             </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-300">
+            {/* Message Input Group */}
+            <div className="flex flex-col gap-3">
+              <label className="text-sm font-semibold text-gray-300 ml-1 tracking-wide">
                 Message
               </label>
               <textarea
@@ -126,21 +134,39 @@ export default function Contact() {
                 required
                 value={formData.message}
                 onChange={handleChange}
-                rows="4"
+                rows="5"
                 placeholder="Tell me about your project..."
-                className="w-full bg-gray-900/50 border border-gray-700 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                className="w-full bg-gray-900/50 border border-gray-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-500/50 focus:bg-gray-900 transition-all shadow-inner resize-none"
               ></textarea>
             </div>
+            <div className="flex justify-start pt-4">
+              <div className="flex justify-start pt-4">
+                <button
+                  type="submit"
+                  className="relative overflow-hidden px-10 py-4 rounded-xl font-bold border border-white/20 bg-white/5 text-white transition-all duration-300 group cursor-pointer"
+                >
+                  {/* Slide-up Fill Layer */}
+                  <span className="absolute bottom-0 left-0 w-full h-0 bg-blue-600 transition-all duration-500 ease-out group-hover:h-full -z-10"></span>
 
-            {/* Form Submit Button (Slide-up effect included) */}
-            <button
-              type="submit"
-              className="relative overflow-hidden w-full bg-white/5 border border-white/10 rounded-xl py-4 
-                         text-center text-white font-bold transition-all cursor-pointer group block"
-            >
-              <span className="absolute bottom-0 left-0 w-full h-0 bg-blue-600 transition-all duration-500 ease-out group-hover:h-full -z-10"></span>
-              <span className="relative z-10">Send to WhatsApp</span>
-            </button>
+                  <span className="relative z-10 flex items-center gap-3">
+                    Send Message
+                    <svg
+                      className="size-5 group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>{" "}
+            </div>
           </form>
         </div>
       </div>

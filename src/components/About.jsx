@@ -1,60 +1,70 @@
-import aboutSvg from "../assets/boy-coding-in-laptop.svg";
+import { useEffect } from "react";
+import aboutImg from "../assets/svgs/boy-coding-in-laptop.svg"; 
 
 export default function About() {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <section 
-      id="about" 
-      className="bg-[#1a1d23] text-gray-100 min-h-screen flex items-center justify-center px-6 sm:px-12 lg:px-24"
-    >
-      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    // py-24 ko py-12 kiya taake section ki height kam ho jaye
+    <section id="about" className="bg-[#1a1d23] py-12 md:py-16 px-6 flex items-center scroll-mt-5">
+      <div className="max-w-6xl mx-auto w-full">
         
-        {/* Left Side: SVG */}
-        <div className="relative group flex justify-center items-center">
-          <div className="absolute bg-blue-500/5 rounded-full blur-3xl w-80 h-80 group-hover:bg-blue-500/15 transition-all duration-700"></div>
-          
-          <img 
-            src={aboutSvg} 
-            alt="About Illustration"
-            className="relative w-full max-w-112.5 lg:max-w-125 h-auto grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer drop-shadow-2xl"
-          />
-        </div>
-
-        {/* Right Side: Content */}
-        <div className="flex flex-col justify-center">
-          <div className="inline-block px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium w-fit mb-6">
-            About Me
-          </div>
-          
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-white leading-tight">
-            Turning Complex Ideas into <br />
-            <span className="text-blue-500">Elegant Solutions</span>
+        {/* 1. HEADING SECTION (Margins kam kar diye) */}
+        <div className="mb-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight text-white">
+            About <span className="text-blue-500">Me</span>
           </h2>
-          
-          <div className="space-y-4 text-gray-400 text-lg lg:text-xl leading-relaxed max-w-2xl">
-            <p>
-              I'm a MERN Stack Developer based in Pakistan, specialized in building 
-              high-performance web applications using React 19 and Tailwind v4.
-            </p>
-            <p>
-              My focus is on creating seamless user experiences and robust architectures 
-              that solve real-world problems through clean and efficient code.
-            </p>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-10 flex gap-8 items-center text-sm font-bold uppercase tracking-widest">
-            <div className="flex flex-col">
-              <span className="text-4xl text-white">2+</span>
-              <span className="text-gray-500 font-normal mt-1">Years Experience</span>
-            </div>
-            <div className="w-px h-12 bg-gray-800"></div>
-            <div className="flex flex-col">
-              <span className="text-4xl text-white">20+</span>
-              <span className="text-gray-500 font-normal mt-1">Projects Done</span>
-            </div>
-          </div>
+          <p className="text-gray-400 max-w-2xl text-base md:text-lg leading-relaxed mx-auto">
+            I am a passionate developer with a focus on creating functional and 
+            aesthetically pleasing digital experiences.
+          </p>
         </div>
 
+        {/* 2. CONTENT GRID */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          
+          {/* LEFT: Image (Size chota kiya max-w-sm se) */}
+          <div className="flex justify-center order-2 lg:order-1">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition-all duration-500"></div>
+              
+              <img 
+                src={aboutImg} 
+                alt="About Hasrat" 
+                className="relative z-10 w-full max-w-75 md:max-w-sm h-auto object-contain drop-shadow-2xl"
+              />
+            </div>
+          </div>
+
+          {/* RIGHT: Main Text Content (Sizes thore adjust kiye) */}
+          <div className="text-center lg:text-left order-1 lg:order-2">
+            <h3 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
+              Turning Complex <br className="hidden md:block" /> 
+              Ideas into <span className="text-blue-500">Elegant Solutions</span>
+            </h3>
+            
+            <p className="text-gray-400 text-base md:text-lg mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              I specialize in building high-quality web applications using the MERN stack. 
+              My goal is to provide clean, efficient, and scalable code that solves real-world problems.
+            </p>
+            
+            {/* Stats Section */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-10">
+              <div className="text-center lg:text-left">
+                <h4 className="text-4xl font-bold text-white mb-0">02+</h4>
+                <p className="text-blue-500 font-medium tracking-wide uppercase text-[10px]">Years Experience</p>
+              </div>
+              <div className="text-center lg:text-left">
+                <h4 className="text-4xl font-bold text-white mb-0">20+</h4>
+                <p className="text-blue-500 font-medium tracking-wide uppercase text-[10px]">Projects Completed</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );
