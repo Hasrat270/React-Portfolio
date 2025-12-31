@@ -39,7 +39,7 @@ export default function ProjectDetails() {
         {/* Hero Section - Added items-stretch for equal height */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           {/* LEFT SIDE: Image Container - Set to h-full */}
-          <div className="rounded-3xl overflow-hidden border border-gray-700 shadow-2xl h-full min-h-[300px] md:min-h-[400px]">
+          <div className="rounded-3xl overflow-hidden border border-gray-700 shadow-2xl h-full min-h-75 md:min-h-100">
             <img
               src={project.image}
               alt={project.title}
