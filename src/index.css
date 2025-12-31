@@ -7,15 +7,13 @@ html {
 /* index.css ya jahan aapki main CSS hai */
 body {
   background-color: #232730;
-  background-image: url("./assets/bg-img.jpg");
+  /* background-image: url("./assets/images/bg-img.jpg"); */
   background-size: cover;
   /* background-attachment: fixed; */
-  background-position: center;
+  /* background-position: center; */
   background-repeat: no-repeat;
 }
-a,
-button,
-[role="button"] {
+a, button, [role="button"] {
   cursor: none !important;
 }
 
@@ -56,12 +54,12 @@ button,
   --animate-marquee: marquee 45s linear infinite;
 
   @keyframes marquee {
-    from {
-      transform: translate3d(0, 0, 0);
+    from { 
+      transform: translate3d(0, 0, 0); 
     }
-    to {
+    to { 
       /* -50% tabhi kaam karega agar icons double hon */
-      transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-50%, 0, 0); 
     }
   }
 }

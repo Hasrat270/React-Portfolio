@@ -8,7 +8,7 @@ export default function LatestWorks() {
 
   // --- REUSABLE STYLES ---
   const styles = {
-    section: "bg-[#1a1d23] text-gray-100 py-24 px-6 sm:px-12 lg:px-24 scroll-mt-20",
+    section: "bg-[#1a1d23] text-gray-100 px-6 sm:px-12 lg:px-24 scroll-mt-20",
     container: "max-w-7xl mx-auto",
     // Mobile par scrollable, PC par grid/flex
     filterContainer: "flex md:justify-center items-center gap-4 mb-20 overflow-x-auto md:overflow-visible pb-4 md:pb-0 no-scrollbar whitespace-nowrap",
